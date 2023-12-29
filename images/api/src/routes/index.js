@@ -5,7 +5,7 @@ const knex = require('knex');
 // } = require('uuid');
 const app = express();
 const PORT = 3000;
-const knexfile = require("./db/knexfile")
+const knexfile = require("../db/knexfile")
 
 // Create a Knex.js instance
 const db = knex(knexfile);

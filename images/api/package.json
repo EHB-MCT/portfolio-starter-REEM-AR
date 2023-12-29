@@ -4,7 +4,7 @@
   "description": "Description of your project",
   "main": "index.js",
   "scripts": {
-    "start": "npm run migrate && nodemon src/index.js --legacy-watch",
+    "start": "npm run migrate && nodemon src/routes/index.js --legacy-watch",
     "migrate": "npx knex migrate:latest --cwd src/db"
   },
   "dependencies": {
