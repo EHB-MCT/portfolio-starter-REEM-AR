@@ -14,4 +14,4 @@ module.exports = {
     seeds: {
         directory: './seeds',
     }
-}
+};
