@@ -46,10 +46,7 @@ body {
     align-items: center;
 }
 
-.home-header {
-    margin-bottom: 20px;
-    font-size: 2em;
-}
+
 
 .home-form {
     background-color:rgba(245, 238, 238, 0.5);
