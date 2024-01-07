@@ -18,7 +18,7 @@ body {
 
 /* Login page styles */
 .login-container {
-    background: linear-gradient(to center, #f3e6ed, #ba7ba5);
+    background: radial-gradient(circle,#e691ab, #efe5e7);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -26,9 +26,9 @@ body {
 }
 
 .login-form {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
+    background-color: rgba(245, 238, 238, 0.5);
+    padding: 2em;
+    border-radius: 1rem;
     text-align: center;
 }
 
@@ -39,24 +39,26 @@ body {
 
 /* Home page styles */
 .home-container {
-    background-color: #f9f9f9;
+    background: radial-gradient(circle,#e691ab, #efe5e7);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.home-header {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
 .home-form {
-    background-color: white;
+    background-color:rgba(245, 238, 238, 0.5);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
-.home-form h1 {
-    margin-bottom: 20px;
-    font-size: 2em;
-}
+
 
 /* Form styles */
 form {
@@ -79,20 +81,11 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #ab566d;
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    text-decoration: underline;
+    background-color: #da738e;
 }

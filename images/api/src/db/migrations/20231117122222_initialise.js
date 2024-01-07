@@ -10,10 +10,10 @@ exports.up = function (knex) {
         table.string("email").notNullable();
         table.string("password").notNullable();
     }).then(() => {
-        return knex.schema.createTable("favorite_roses", (table) => {
+        return knex.schema.createTable("favorite_flowers", (table) => {
             table.increments("id").primary();
             table.integer("user_id").unsigned().references("users.id").onDelete('CASCADE');
-            table.string("rose_name").notNullable();
+            table.string("flower_name").notNullable();
             table.string("color").notNullable();
             table.boolean("scent").defaultTo(false); // default = no scent
         });
@@ -33,7 +33,7 @@ exports.up = function (knex) {
 exports.down = function (knex) {
     return knex.schema.dropTableIfExists("favorite_colors")
         .then(() => {
-            return knex.schema.dropTableIfExists("favorite_roses");
+            return knex.schema.dropTableIfExists("favorite_flowers");
         })
         .then(() => {
             return knex.schema.dropTableIfExists("users");

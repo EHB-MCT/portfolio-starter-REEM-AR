@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Home - Roses Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Nirmana Visual', sans-serif;
-            background-color: #f9f9f9;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .home-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .home-container h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="home-container">
-        <h1>Roses Preferences</h1>
-        <form id="preferencesForm">
+        <h1>Pick your flower</h1>
+        <form class="home-form" id="preferencesForm">
             <label for="favoriteColor">What is your favorite color?</label>
-            <input type="text" id="favoriteColor" name="favoriteColor" required>
+            <select id="favoriteColor" name="favoriteColor">
+                <option value="Red">Red</option>
+                <option value="Yellow">Yellow</option>
+                <option value="White">White</option>
+                <option value="Pink">Pink</option>
+            </select>
+
             <label for="scentPreference">Do you prefer scented flowers?</label>
             <select id="scentPreference" name="scentPreference">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
-            <button type="submit">Find Roses</button>
+
+            <button type="button" onclick="fetchFlower()">Find Roses</button>
         </form>
+        <div id="flowerResult"></div>
     </div>
+
+    <script>
+        async function fetchFlower() {
+            const favoriteColor = document.getElementById('favoriteColor').value;
+            const scentPreference = document.getElementById('scentPreference').value;
+
+            try {
+                const response = await fetch('/getFlower', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ favoriteColor, scentPreference })
+                });
+
+                const data = await response.json();
+
+                const flowerResult = document.getElementById('flowerResult');
+                if (response.ok) {
+                    flowerResult.innerHTML = `<p>${data.message}: ${JSON.stringify(data.flower)}</p>`;
+                } else {
+                    flowerResult.innerHTML = `<p>${data.message}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
 </body>
+
 </html>
