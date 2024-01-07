@@ -4,7 +4,7 @@ const app = require('../../index'); // Update the path accordingly to match your
 describe('Favorite Flower Integration Tests', () => {
     it('should add a favorite flower for a user', async () => {
         const flowerData = {
-            user_id: 1, // Replace with an existing user ID in your database
+            user_id: 1, 
             flower_name: 'Red Rose',
             color: 'Red',
             scent: true
